@@ -42,5 +42,17 @@ pipeline {
                 }
             }
         }
+         stage('RUN APP') {
+            steps {
+                echo "RUNNING THE APP MY BOIIIIIIIIII"
+                sh """
+                
+                export JENKINS_NODE_COOKIE=dontKillMe ;nohup java -jar -DServer.port=8001 target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar	&
+                
+                """
+                
+               
+            }
+        }
     }
 }
